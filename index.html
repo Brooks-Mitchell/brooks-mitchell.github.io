@@ -6,147 +6,203 @@
   <title>Brooks Mitchell</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #272727;
-      --bg-subtle: #1a1a17;
-      --border: #252520;
-      --text: #f0efed;
-      --text-mid: #f0efed;
-      --text-dim: #f0efed;
-      --accent: #d4703a;
+      --bg:        #272727;
+      --bg-subtle: #161612;
+      --bg-raised: #1d1d18;
+      --border:    #242420;
+      --text:      #e4e0d8;
+      --text-mid:  #7a7770;
+      --text-dim:  #3d3c38;
+      --accent:    #e8a020;   /* amber */
+      --accent-lo: #231a06;
       --sans: 'DM Sans', system-ui, sans-serif;
-      --max: 640px;
+      --max: 700px;
       --side: clamp(1.5rem, 6vw, 3.5rem);
     }
 
     html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; -webkit-font-smoothing: antialiased; }
     body { max-width: calc(var(--max) + var(--side) * 2); margin: 0 auto; padding: 0 var(--side); }
 
-    /* ── NAV ── */
+    /* ─────────── NAV ─────────── */
     nav {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
-      padding: 2.75rem 0 2.25rem;
+      padding: 2.5rem 0 2rem;
       border-bottom: 1px solid var(--border);
     }
-    .nav-name { font-size: 3rem; font-weight: 400; color: var(--text-mid); }
+    .nav-name { font-size: 0.85rem; font-weight: 400; color: var(--text-mid); }
+    .nav-role {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-dim);
+      letter-spacing: 0.01em;
+    }
+    .nav-role a { color: var(--accent); text-decoration: none; }
+    .nav-role a:hover { text-decoration: underline; }
 
-    /* ── HERO ── */
+    /* ─────────── HERO ─────────── */
     .hero {
-      padding: 5.5rem 0 4.5rem;
+      padding: 5rem 0 4rem;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr 180px;
       gap: 3rem;
       align-items: start;
     }
     .hero-text { min-width: 0; }
-    .hero .lede {
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: var(--text-mid);
-      max-width: 48ch;
-      margin-bottom: 2.75rem;
+    .hero-name {
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1.25rem;
     }
+    .hero-tagline {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-mid);
+      max-width: 46ch;
+      margin-bottom: 2.25rem;
+    }
+    .hero-tagline strong { font-weight: 500; color: var(--text); }
     .hero-photo {
-      flex-shrink: 0;
-      width: 160px;
-      height: 160px;
+      width: 180px; height: 180px;
       border-radius: 50%;
       overflow: hidden;
       border: 1px solid var(--border);
       background: var(--bg-subtle);
       display: flex; align-items: center; justify-content: center;
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
     }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-photo .ph-label { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-dim); }
-    .hero-photo .ph-label svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+    .hero-photo .ph-label svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.5; }
     .hero-photo .ph-label span { font-size: 0.6rem; letter-spacing: 0.06em; }
 
-    @media (max-width: 480px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-photo { width: 100px; height: 100px; }
-    }
-
-    /* ── SOCIAL ROW ── */
+    /* social row */
     .social-row { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; }
     .social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      font-weight: 400;
-      text-decoration: none;
-      color: var(--text-mid);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 400;
+      text-decoration: none; color: var(--text-mid);
       transition: color 0.15s;
     }
     .social-link:hover { color: var(--text); }
-    .social-link.primary { color: var(--accent); }
-    .social-link.primary:hover { color: #e07d45; }
+    .social-link.primary { color: var(--accent); font-weight: 500; }
+    .social-link.primary:hover { color: #f0b030; }
     .social-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
     .social-sep { color: var(--text-dim); }
 
-    /* ── SECTIONS ── */
-    section { padding: 3.75rem 0; border-top: 1px solid var(--border); }
-    .section-label {
-      font-size: 0.99rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 0.25rem;
+    @media (max-width: 520px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { width: 110px; height: 110px; margin-top: 0; }
     }
 
-    /* ── ABOUT ── */
-    .about-body p { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--text-mid); }
+    /* ─────────── SECTIONS ─────────── */
+    section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 1.75rem;
+    }
+
+    /* ─────────── ABOUT ─────────── */
+    .about-body p {
+      font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--text-mid);
+    }
     .about-body p + p { margin-top: 1rem; }
+    .about-body strong { font-weight: 500; color: var(--text); }
+
     .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2rem; }
     .tag {
-      font-size: 0.73rem;
-      font-weight: 400;
-      color: var(--text-mid);
+      font-size: 0.72rem; font-weight: 400; color: var(--text-mid);
       border: 1px solid var(--border);
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
+      padding: 0.2rem 0.65rem; border-radius: 999px;
     }
 
-    /* ── WRITING ── */
+    /* ─────────── AS SEEN IN / LOGOS ─────────── */
+    .logos-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2rem;
+      align-items: center;
+      margin-top: 0.25rem;
+    }
+    .logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+    .logo-item:hover { opacity: 0.85; }
+    .logo-box {
+      height: 36px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-box img { height: 100%; width: auto; max-width: 90px; filter: grayscale(1) brightness(2); object-fit: contain; }
+    /* Text-based logo fallback */
+    .logo-text {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--text); white-space: nowrap;
+    }
+    .logo-caption {
+      font-size: 0.6rem; font-weight: 400;
+      color: var(--text-dim); letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* ─────────── CURRENT ROLE CARD ─────────── */
+    .role-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .role-card-text {}
+    .role-card-co {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.2rem;
+    }
+    .role-card-title { font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
+    .role-card-desc { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--text-mid); }
+
+    /* ─────────── WRITING ─────────── */
     .posts { display: flex; flex-direction: column; }
     .post-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 2rem;
-      padding: 1.1rem 0;
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 2rem; padding: 1.1rem 0;
       border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
+      text-decoration: none; color: inherit;
     }
     .post-item:last-child { border-bottom: none; }
     .post-item:hover .post-title { color: var(--accent); }
     .post-title { font-size: 0.95rem; font-weight: 400; line-height: 1.5; color: var(--text); transition: color 0.15s; }
     .post-date { font-size: 0.72rem; font-weight: 300; color: var(--text-dim); white-space: nowrap; }
 
-    /* ── CONTACT ── */
-    .contact-body p { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--text-mid); max-width: 44ch; margin-bottom: 2rem; }
-
-    /* ── BOTTOM PHOTO ── */
+    /* ─────────── BOTTOM PHOTO ─────────── */
     .photo-section {
-      padding: 3.75rem 0;
+      padding: 3.5rem 0;
       border-top: 1px solid var(--border);
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.85rem;
     }
     .avatar-bottom {
-      width: 150px; height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid var(--border);
+      width: 150px; height: 150px; border-radius: 50%;
+      overflow: hidden; border: 1px solid var(--border);
       background: var(--bg-subtle);
       display: flex; align-items: center; justify-content: center;
     }
@@ -156,65 +212,113 @@
     .avatar-bottom .ph-label span { font-size: 0.6rem; letter-spacing: 0.06em; }
     .photo-caption { font-size: 0.72rem; font-weight: 300; color: var(--text-dim); }
 
-    /* ── FOOTER ── */
+    /* ─────────── FOOTER ─────────── */
     footer {
       padding: 1.75rem 0 3rem;
       border-top: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
     }
-    footer p { font-size: 0.7rem; font-weight: 300; color: var(--text-dim); }
+    footer p { font-size: 0.68rem; font-weight: 300; color: var(--text-dim); }
   </style>
 </head>
 <body>
 
+  <!-- ── NAV ── -->
   <nav>
-    <span class="nav-name">Brooks Mitchell</span>
+    <span class="nav-name">Firstname Lastname</span>
+    <span class="nav-role">Head of Sales · <a href="https://linkwave.ai" target="_blank">LinkWave</a></span>
   </nav>
 
   <!-- ── HERO ── -->
   <div class="hero">
-    <!-- <div class="hero-text">
-      <h3>Professional Stuff</h3>
-      <p class="lede">
-        Current: <br> Sales - all of it. full-cycle from prospect to close, technical PoCs & demos, strategy, ops
-      </p>
-      <p class="lede">
-        Past: <br> 
-        Army infantry (11C)<br>
-        Author of philosophy book "Modern Taoism"<br>
-        Small business owner (digital marketing agency)<br>
-        Software Engineer (Accounting SaaS, oil and gas)
+    <div class="hero-text">
+      <h1 class="hero-name">Firstname<br>Lastname</h1>
+      <p class="hero-tagline">
+        Sales | Software | IoT | AEC
       </p>
       <div class="social-row">
-        <a href="https://linkedin.com/in/yourhandle" target="_blank" class="social-link primary">
+        <a href="https://linkedin.com/in/brooks-mitchell/" target="_blank" class="social-link primary">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
-        <span class="social-sep">·</span>
-        <a href="https://youtube.com/@yourhandle" target="_blank" class="social-link">
-          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          YouTube
-        </a>
-        <span class="social-sep">·</span>
-        <a href="mailto:you@yourdomain.com" class="social-link">
-          Blog
-        </a>
       </div>
     </div>
-    <!-- swap placeholder for <img src="images/profile.jpg" alt="Your Name"> when ready -->
+    <!-- Replace with: <img src="images/profile.jpg" alt="Firstname Lastname"> -->
     <div class="hero-photo">
       <div class="ph-label">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span>photo</span>
+        <img src="profile.jpg" alt="Brooks Mitchell">
       </div>
     </div>
   </div>
 
   <!-- ── ABOUT ── -->
   <section id="about">
-    <p class="section-label">Other Stuff</p>
+    <p class="section-label">About</p>
+
+    <!-- Current role card -->
+    <div class="role-card">
+      <div class="role-card-text">
+        <p class="role-card-co">Currently · LinkWave</p>
+        <p class="role-card-title">Head of Sales</p>
+        <p class="role-card-desc">Leading sales at LinkWave, a construction technology SaaS that scans building documents for code compliance, generates Code Analysis Review Tables, and conducts feasibility studies — helping developers, architects, and GCs move faster with less risk.</p>
+      </div>
+    </div>
+
     <div class="about-body">
-      <p> WORK IN PROGRESS<br></p>
+      <p>
+        From the 101st Airborne Division to AI construction tech.
+      </p>
+      <p>
+        Lorem epsum
+      </p>
+      <p>
+        Lromum speis duos
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ── AS SEEN IN / ASSOCIATIONS ── -->
+  <section id="associations">
+    <p class="section-label">Associations &amp; Media</p>
+    <div class="logos-row">
+
+      <!-- U.S. Army — text fallback; swap for official seal img if you have rights -->
+      <div class="logo-item">
+        <div class="logo-box">
+          <span class="logo-text">U.S. ARMY</span>
+        </div>
+        <span class="logo-caption">Veteran</span>
+      </div>
+
+      <!-- NBC — text fallback; swap for logo img -->
+      <div class="logo-item">
+        <div class="logo-box">
+          <span class="logo-text">NBC</span>
+        </div>
+        <span class="logo-caption">Daytime TV</span>
+      </div>
+
+      <!-- LinkWave -->
+      <div class="logo-item">
+        <div class="logo-box">
+          <!-- swap for <img src="images/linkwave-logo.png" alt="LinkWave"> -->
+          <span class="logo-text">LinkWave</span>
+        </div>
+        <span class="logo-caption">Head of Sales</span>
+      </div>
+
+      <!-- IFS -->
+      <div class="logo-item">
+        <div class="logo-box">
+          <span class="logo-text">IFS</span>
+        </div>
+        <span class="logo-caption">Software Engineer</span>
+      </div>
+
+      <!-- Placeholder for additional logos -->
+      <!-- Copy a .logo-item block and swap in your img or text -->
 
     </div>
   </section>
@@ -224,22 +328,22 @@
     <p class="section-label">Writing</p>
     <div class="posts">
       <a href="#" class="post-item">
-        <span class="post-title">post title 1</span>
-        <span class="post-date">date</span>
+        <span class="post-title">Post #3 placeholder</span>
+        <span class="post-date">Coming soon</span>
       </a>
       <a href="#" class="post-item">
-        <span class="post-title">post title 2</span>
-        <span class="post-date">date</span>
+        <span class="post-title">Post #2 placeholder</span>
+        <span class="post-date">Coming soon</span>
       </a>
       <a href="#" class="post-item">
-        <span class="post-title">post title 2</span>
-        <span class="post-date">date</span>
+        <span class="post-title">Post #1 placeholder</span>
+        <span class="post-date">Coming soon</span>
       </a>
-    </div> -->
+    </div>
   </section>
 
   <!-- ── BOTTOM PHOTO ── -->
-  <!-- Replace placeholder with: <img src="images/your-other-photo.jpg" alt="Your Name"> -->
+  <!-- Replace with: <img src="images/your-other-photo.jpg" alt="Firstname Lastname"> -->
   <div class="photo-section">
     <div class="avatar-bottom">
       <div class="ph-label">
@@ -251,7 +355,8 @@
   </div>
 
   <footer>
-    <p>© 2026  Brooks Mitchell  |  created with undiluted html</p>
+    <p>© 2025 Firstname Lastname</p>
+    <p>Built with HTML, no frameworks harmed</p>
   </footer>
 
 </body>
