@@ -28,16 +28,15 @@ body { max-width: calc(var(--max) + var(--side) * 2); margin: 0 auto; padding: 0
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
-  height: var(--nav-h);
+  height: 130px;
+  padding: 1rem 0;
   gap: 1.5rem;
 }
-.nav-logo { display: flex; align-items: center; text-decoration: none; }
 .nav-logo img { height: 120px; width: auto; }
-.nav-links { display: flex; gap: 0.25rem; list-style: none; }
 .nav-links a {
-  font-size: 0.82rem; font-weight: 400;
+  font-size: 1rem; font-weight: 500;
   text-decoration: none; color: var(--text-mid);
-  padding: 0.4rem 0.75rem; border-radius: 4px;
+  padding: 0.5rem 0.9rem; border-radius: 4px;
   transition: color 0.15s, background 0.15s;
 }
 .nav-links a:hover { color: var(--text); background: var(--bg-raised); }
