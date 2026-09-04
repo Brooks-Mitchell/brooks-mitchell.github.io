@@ -39,7 +39,12 @@ body { max-width: calc(var(--max) + var(--side) * 2); margin: 0 auto; padding: 0
   padding: 0.5rem 0.9rem; border-radius: 4px;
   transition: color 0.15s, background 0.15s;
 }
-.nav-links a:hover { color: var(--text); background: var(--bg-raised); }
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  list-style: none;
+}
 .nav-links a.active { color: var(--accent); }
 
 /* Hamburger — mobile only */
