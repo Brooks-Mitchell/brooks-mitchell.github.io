@@ -32,7 +32,7 @@ body { max-width: calc(var(--max) + var(--side) * 2); margin: 0 auto; padding: 0
   gap: 1.5rem;
 }
 .nav-logo { display: flex; align-items: center; text-decoration: none; }
-.nav-logo img { height: 38px; width: auto; }
+.nav-logo img { height: 120px; width: auto; }
 .nav-links { display: flex; gap: 0.25rem; list-style: none; }
 .nav-links a {
   font-size: 0.82rem; font-weight: 400;
@@ -118,7 +118,7 @@ section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
 }
 .logo-item:hover { opacity: 1; }
 .logo-box { height: 40px; display: flex; align-items: center; justify-content: center; }
-.logo-box img { height: 100%; width: auto; max-width: 100px; object-fit: contain; filter: grayscale(1) brightness(2.5); }
+.logo-box img { height: 100%; width: auto; max-width: 100px; object-fit: contain; }
 .logo-text { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; color: var(--text); }
 .logo-caption { font-size: 0.6rem; font-weight: 400; color: var(--text-dim); letter-spacing: 0.04em; text-align: center; }
 
