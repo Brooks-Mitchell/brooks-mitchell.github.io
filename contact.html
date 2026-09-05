@@ -8,6 +8,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="src/style.css" />
+  <style>
+    .community-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: 6px;
+      padding: 2rem 2rem 2rem;
+      margin-bottom: 0;
+    }
+    .community-card .slack-eyebrow {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .community-card h2 {
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+    .community-card p {
+      font-size: 0.95rem; font-weight: 300;
+      line-height: 1.85; color: var(--text-mid);
+      margin-bottom: 1rem;
+    }
+    .community-card p:last-of-type { margin-bottom: 1.75rem; }
+    .waitlist-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #1a1100;
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; padding: 0.7rem 1.4rem;
+      border-radius: 4px; transition: background 0.15s;
+    }
+    .waitlist-btn:hover { background: var(--accent-hi); }
+    .waitlist-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .waitlist-note {
+      font-size: 0.72rem; font-weight: 300;
+      color: var(--text-dim); margin-top: 0.85rem;
+    }
+    .divider-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; align-items: center; gap: 0.75rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+    .divider-label::before, .divider-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+  </style>
 </head>
 <body>
 
@@ -25,10 +74,43 @@
     </ul>
   </nav>
 
+  <!-- ── COMMUNITY SECTION ── -->
   <div class="contact-header">
-    <h1>Get in touch</h1>
-    <p>If you're working on something interesting in AEC tech or AI — or just want to talk construction software — I'm genuinely interested. LinkedIn is the best place to start.</p>
+    <h1>Join the Community</h1>
+    <p>AEC Tech Professionals is a Slack for the people building, selling, and working alongside the technology transforming the built environment.</p>
   </div>
+
+  <div style="padding-bottom: 1rem;">
+    <div class="community-card">
+      <p class="slack-eyebrow">Early Access · Slack Community</p>
+      <h2>AEC Tech Professionals</h2>
+      <p>
+        Whether you're an architect who evaluates software, a founder selling into construction,
+        an engineer curious about AI, or someone adjacent to the industry trying to understand
+        it — this is where those conversations happen.
+      </p>
+      <p>
+        Inside: industry news, job opportunities, tool recommendations, vendor-neutral
+        discussions, and direct access to people who actually work in AEC tech every day.
+      </p>
+      <p>
+        We're building the community before opening the doors. Join the early access list
+        and you'll be first in when we go live.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYyty8htXL1xffMKtfy4kEosLnhcqcu5eaAoyCSCSbOQX9Kg/viewform?usp=publish-editor"
+         target="_blank" class="waitlist-btn">
+        <!-- Slack icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+        </svg>
+        Request Early Access
+      </a>
+      <p class="waitlist-note">Takes 2 minutes · You'll be notified when we launch</p>
+    </div>
+  </div>
+
+  <!-- ── OTHER WAYS TO CONNECT ── -->
+  <div class="divider-label">or reach out directly</div>
 
   <div class="contact-options" style="padding-bottom:4rem;">
     <a href="https://linkedin.com/in/brooks-mitchell/" target="_blank" class="contact-option">
@@ -47,7 +129,7 @@
       </span>
       <div>
         <p class="contact-option-label">Email</p>
-        <p class="contact-option-value">you@brooksmitchell.com</p><!-- update -->
+        <p class="contact-option-value">you@brooksmitchell.com</p>
       </div>
     </a>
 
@@ -58,16 +140,6 @@
       <div>
         <p class="contact-option-label">YouTube</p>
         <p class="contact-option-value">The Alternate Means Podcast</p>
-      </div>
-    </a>
-
-    <a href="https://github.com/yourhandle" target="_blank" class="contact-option">
-      <span class="contact-option-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </span>
-      <div>
-        <p class="contact-option-label">GitHub</p>
-        <p class="contact-option-value">github.com/yourhandle</p>
       </div>
     </a>
   </div>
