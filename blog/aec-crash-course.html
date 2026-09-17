@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AEC Crash Course — Brooks Mitchell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/style.css" />
+  <style>
+    /* Table styling scoped to post body — not in shared stylesheet yet */
+    .post-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-size: 0.88rem;
+    }
+    .post-body th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text);
+      padding: 0.6rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-raised);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .post-body td {
+      padding: 0.6rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-mid);
+      font-weight: 300;
+      vertical-align: top;
+    }
+    .post-body table strong { color: var(--text); font-weight: 500; }
+    .post-body .table-wrap { overflow-x: auto; margin: 1.5rem 0 2rem; }
+    .post-body .table-wrap table { margin: 0; }
+
+    .post-body .lede-block {
+      font-size: 0.95rem; font-weight: 300; font-style: italic;
+      color: var(--text-dim); margin-bottom: 1.75rem;
+    }
+    .post-body hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 2.75rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="../index.html" class="nav-logo">
+      <img src="../src/images/logo_transparent.png" alt="Brooks Mitchell" />
+    </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── POST HEADER ── -->
+  <div class="post-header">
+    <p class="post-eyebrow">AEC Tech · Primer</p>
+    <h1>The AEC Crash Course</h1>
+    <p class="post-byline">
+      <strong>Brooks Mitchell</strong> · A free primer, no prior industry experience assumed
+    </p>
+  </div>
+
+  <!-- ── POST BODY ── -->
+  <div class="post-body">
+
+    <p class="lede-block">What the architecture, engineering, and construction industry actually is, who does what, and the acronyms you need to survive a meeting.</p>
+
+    <h2>Who this is for</h2>
+
+    <p>
+      You work in tech. Someone in your network says they do "AEC tech," or a job posting mentions "construction technology," or you just closed a deal with a company whose customers wear hard hats. You nodded along. You have no idea what a submittal is.
+    </p>
+
+    <p>
+      This is the primer. Thirty minutes of reading gets you to the point where you can follow an industry conversation, ask a competent question, and know what you don't know.
+    </p>
+
+    <p>
+      It is not a course. It is not a certification. It is the vocabulary and the mental model.
+    </p>
+
+    <hr>
+
+    <h2>1. What AEC means</h2>
+
+    <p>
+      <strong>AEC</strong> stands for <strong>A</strong>rchitecture, <strong>E</strong>ngineering, and <strong>C</strong>onstruction. It is the umbrella term for everyone involved in designing and building the physical environment: buildings, roads, bridges, water systems, data centers, hospitals, warehouses.
+    </p>
+
+    <p>
+      You will also see <strong>AECO</strong>, where the <strong>O</strong> is <strong>Owner</strong> or <strong>Operations</strong>. That fourth letter matters more than it looks. A building costs money to design and build once, then costs money to run for the next fifty years. The people who operate it have different software, different priorities, and often no relationship at all with the people who built it. Adding the O is an acknowledgment that the handoff between construction and operations is one of the industry's genuine unsolved problems.
+    </p>
+
+    <p>Adjacent terms you will encounter:</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Term</th><th>What it covers</th></tr>
+        <tr><td><strong>Built environment</strong></td><td>The broadest framing. Everything humans construct, plus how it is planned, financed, operated, and eventually demolished.</td></tr>
+        <tr><td><strong>Construction tech / ConTech</strong></td><td>Software and hardware aimed at the construction phase specifically. Field productivity, safety, equipment, materials.</td></tr>
+        <tr><td><strong>PropTech</strong></td><td>Real estate technology. Acquisition, leasing, property management, investment. Overlaps AEC at the front end.</td></tr>
+        <tr><td><strong>Infrastructure / heavy civil</strong></td><td>Roads, bridges, dams, transit, utilities. Different contracts, different owners (usually public), different everything.</td></tr>
+        <tr><td><strong>Vertical vs. horizontal</strong></td><td>Vertical = buildings. Horizontal = roads, pipelines, site work.</td></tr>
+      </table>
+    </div>
+
+    <h3>The industry in five facts</h3>
+
+    <ol>
+      <li><strong>It is enormous.</strong> Construction is roughly 6–7% of GDP in developed economies and around 13% of global GDP when you include the full built environment. It employs more people than almost any other sector.</li>
+      <li><strong>It is extraordinarily fragmented.</strong> There is no Amazon of construction. In the US, the largest contractor holds low single-digit market share. Most firms are small, regional, and family-owned. This is the single most important fact for anyone selling into the industry.</li>
+      <li><strong>Every project is a prototype.</strong> Software ships the same binary to a million users. Construction designs and builds one thing, once, on a specific piece of dirt, under a specific jurisdiction's rules, with a team assembled for that project and dissolved afterward. There is no economy of scale in the way tech assumes.</li>
+      <li><strong>Margins are thin.</strong> General contractors often run 2–5% net. A single bad project can erase a year. This makes the industry risk-obsessed and conservative, which is frequently mistaken for being backward.</li>
+      <li><strong>Productivity has been roughly flat for decades.</strong> Manufacturing productivity has climbed steeply since 1945. Construction has not. Every serious person in the industry has a theory about why. This is the animating problem behind most AEC technology.</li>
+    </ol>
+
+    <blockquote>
+      <p><strong>The mental model:</strong> A construction project is a temporary company. It is capitalized (financing), staffed (design team, contractor, subs), given a product spec (drawings and specifications), run for 12 to 48 months, and then liquidated. Everyone on it works for a different employer with a different contract and a different incentive. Understand that and most of the industry's strange behavior becomes legible.</p>
+    </blockquote>
+
+    <hr>
+
+    <h2>2. The lifecycle</h2>
+
+    <p>
+      This is the spine. Nearly everything in AEC is easier to understand once you know where in this sequence it happens.
+    </p>
+
+    <p>
+      The phase names below follow the industry's standard framing, which comes largely from CSI (the Construction Specifications Institute) and AIA (the American Institute of Architects). Different firms use slightly different labels, but the shape is universal.
+    </p>
+
+    <h3>Phase 0 – Site and feasibility</h3>
+
+    <p>Before anyone draws anything, somebody has to decide that a project should exist and that it works financially.</p>
+
+    <ul>
+      <li><strong>Site selection and due diligence.</strong> Is the land buildable? What is the zoning? Are there wetlands, easements, contamination, bad soil?</li>
+      <li><strong>Entitlements.</strong> Legal permission to build what you want to build. Rezoning, variances, use permits, planning commission hearings. This can take years and can kill a project outright.</li>
+      <li><strong>Pro forma.</strong> The financial model. Costs in, revenue out.</li>
+      <li><strong>Programming.</strong> How much of what? 200 units, 40,000 square feet of retail, 12 operating rooms.</li>
+    </ul>
+
+    <p>Key documents here: <strong>LOI</strong> (letter of intent), <strong>PSA</strong> (purchase and sale agreement), <strong>ALTA survey</strong>, <strong>Phase I ESA</strong> (environmental site assessment).</p>
+
+    <h3>Phase 1 – Design</h3>
+
+    <p>Design proceeds in escalating levels of detail. Each phase ends with a package the owner reviews and approves before spending more money.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Phase</th><th>Abbrev.</th><th>What exists at the end</th></tr>
+        <tr><td><strong>Schematic Design</strong></td><td>SD</td><td>Basic form, size, layout, siting. Rough cost estimate. Roughly 30% resolved.</td></tr>
+        <tr><td><strong>Design Development</strong></td><td>DD</td><td>Systems chosen and coordinated. Structure, mechanical, electrical laid out. Materials selected. Roughly 60%.</td></tr>
+        <tr><td><strong>Construction Documents</strong></td><td>CD</td><td>The full buildable set. Drawings plus written specifications. Roughly 100%.</td></tr>
+        <tr><td><strong>Permitting</strong></td><td>–</td><td>Submit the set to the local jurisdiction for code review and approval.</td></tr>
+      </table>
+    </div>
+
+    <p><strong>Software analogy, used once and then dropped:</strong> SD is the design doc, DD is the technical spec with interfaces defined, CD is the actual codebase. Permitting is a compliance review by a regulator who can block your release.</p>
+
+    <p>The output of design is not "a blueprint." It is a set of <strong>contract documents</strong>, which is a legally operative artifact. More on that in section 4.</p>
+
+    <h3>Phase 2 – Procurement</h3>
+
+    <p>The owner needs a builder and a price.</p>
+
+    <ul>
+      <li><strong>Bidding.</strong> The project is advertised or invited. Contractors receive the documents and prepare pricing.</li>
+      <li><strong>Takeoff and estimating.</strong> Contractors measure quantities off the drawings and price them. This is genuinely hard, high-stakes work done under a deadline.</li>
+      <li><strong>Addenda.</strong> Formal changes to the bid documents issued during the bid period.</li>
+      <li><strong>Bid day.</strong> Numbers come in, usually in the last thirty minutes, often by fax. Yes, still.</li>
+      <li><strong>Award and buyout.</strong> The winner is selected and then goes out to subcontractors to lock in the trade pricing they estimated.</li>
+      <li><strong>NTP.</strong> Notice to proceed. Work can begin.</li>
+    </ul>
+
+    <h3>Phase 3 – Construction</h3>
+
+    <p>The longest and most visible phase. The paperwork here is the part outsiders never anticipate.</p>
+
+    <ul>
+      <li><strong>Mobilization.</strong> Site fencing, trailers, utilities, safety plan.</li>
+      <li><strong>Submittals.</strong> The contractor formally submits product data, shop drawings, and samples proving that what they intend to install matches what was specified. The design team reviews and approves. Thousands of these on a large project.</li>
+      <li><strong>RFIs.</strong> Requests for information. When the drawings are unclear, contradictory, or hit reality wrong, the contractor asks a formal written question and the architect or engineer answers in writing. The RFI log is a running record and, later, evidence.</li>
+      <li><strong>Change orders.</strong> Formal modifications to scope, price, or schedule. The most contentious document in the industry.</li>
+      <li><strong>Pay applications.</strong> Monthly billing based on percentage of work complete, reviewed and certified before payment.</li>
+      <li><strong>Inspections.</strong> The local jurisdiction inspects at defined milestones. Fail one and work stops.</li>
+      <li><strong>OAC meetings.</strong> Owner-Architect-Contractor. The recurring project standup.</li>
+    </ul>
+
+    <h3>Phase 4 – Closeout and occupancy</h3>
+
+    <ul>
+      <li><strong>Punch list.</strong> The walkthrough list of incomplete or defective items.</li>
+      <li><strong>Substantial completion.</strong> The legal milestone where the owner can occupy and use the building for its intended purpose. Triggers warranty periods and the release of retained money.</li>
+      <li><strong>Commissioning (Cx).</strong> Systematic verification that the building's systems actually work as designed. Increasingly its own discipline.</li>
+      <li><strong>Certificate of Occupancy (CO).</strong> The jurisdiction's legal permission to occupy.</li>
+      <li><strong>O&amp;M turnover.</strong> Manuals, warranties, as-built drawings, asset data handed to whoever will operate the building.</li>
+      <li><strong>Warranty period.</strong> Typically one year for general work, longer for roofs and major systems.</li>
+    </ul>
+
+    <p>Then the building operates for 30, 50, 100 years. That period is where the overwhelming majority of the total cost lives, and it is the least digitized part of the whole lifecycle.</p>
+
+    <hr>
+
+    <h2>3. Who's who</h2>
+
+    <p>Titles vary by firm and region. What follows is the working reality: what the role does, who pays them, and what they are optimizing for.</p>
+
+    <h3>Owner side</h3>
+
+    <p><strong>Owner / Developer.</strong> Pays for everything and bears the risk. May be a REIT, a private developer, a corporation building for its own use, a hospital system, a school district, a government agency. Optimizing for: return, schedule, and not getting sued.</p>
+    <p><strong>Owner's Representative ("Owner's Rep").</strong> Hired by the owner to manage the project on their behalf, especially when the owner does not build often. Acts as the owner's technical brain.</p>
+    <p><strong>Development Manager.</strong> Runs the project from the business side. Entitlements, financing, pro forma, leasing coordination.</p>
+    <p><strong>Facilities / Asset Manager.</strong> Inherits the building. Frequently not consulted during design, which is a recurring and well-documented failure mode.</p>
+
+    <h3>Design side</h3>
+
+    <p><strong>Architect.</strong> Designs the building, coordinates the consultant team, produces the drawings and specifications, and typically administers the construction contract on the owner's behalf. Legally licensed and personally liable.</p>
+    <p><strong>Architect of Record (AOR).</strong> The licensed entity that stamps the drawings and carries the liability. On large projects, a "design architect" may do the concept while a separate AOR produces the documents.</p>
+    <p><strong>Structural Engineer (SE).</strong> Foundations, framing, load paths, seismic and wind. Makes sure it stands up.</p>
+    <p><strong>MEP Engineer.</strong> Mechanical, electrical, plumbing. Often includes <strong>FP</strong> (fire protection), giving you <strong>MEPF</strong>. Heating, cooling, ventilation, power, data, water, waste, sprinklers. Usually the most spatially complex coordination problem in a building.</p>
+    <p><strong>Civil Engineer.</strong> Site work. Grading, drainage, stormwater, utilities to the building, parking, roads.</p>
+    <p><strong>Landscape Architect, Interior Designer, Lighting Designer, Acoustician, Envelope Consultant, Code Consultant.</strong> Specialty consultants brought in as needed. Larger and more technical projects have more of them.</p>
+    <p><strong>Engineer of Record (EOR).</strong> Same idea as AOR, for a given engineering discipline.</p>
+    <p><strong>BIM Manager / VDC Manager.</strong> Owns the digital model, the modeling standards, and clash detection. This is where a lot of AEC-tech conversations actually land.</p>
+
+    <h3>Construction side</h3>
+
+    <p><strong>General Contractor (GC).</strong> Holds the contract with the owner to build the project. Manages the site, the schedule, the money, and the subcontractors. Self-performs some work or none at all.</p>
+    <p><strong>Construction Manager (CM).</strong> Similar function, different contractual posture. Under <strong>CMAR</strong> (CM at Risk) they carry the same risk as a GC. Under <strong>CM Agency</strong> they advise the owner without holding trade contracts.</p>
+    <p><strong>Subcontractor ("sub").</strong> The firm that actually performs a trade: concrete, steel, drywall, electrical, mechanical, roofing, glazing. Most physical work on a jobsite is performed by subs, not by the GC.</p>
+    <p><strong>Project Executive (PX).</strong> Oversees several projects, owns the client relationship and the profit.</p>
+    <p><strong>Project Manager (PM).</strong> Owns one project's budget, contracts, schedule, and paperwork. Usually office-based with regular site presence.</p>
+    <p><strong>Superintendent ("Super").</strong> Runs the field. Sequencing, crews, safety, quality, daily execution. On most jobs the Super and the PM are co-equal, and the Super's opinion on constructability is final.</p>
+    <p><strong>Project Engineer (PE) / Field Engineer / Assistant PM.</strong> The engine room. Processes submittals and RFIs, tracks logs, chases documentation. The industry's standard entry-level role.</p>
+    <p><strong>Estimator.</strong> Prices the work. Takeoff, unit costs, subcontractor solicitation, bid assembly.</p>
+    <p><strong>Scheduler.</strong> Builds and maintains the CPM schedule. On large projects, a full-time specialist.</p>
+    <p><strong>Foreman / Crew / Trades.</strong> The people installing the building. Carpenters, ironworkers, electricians, pipefitters, operators, laborers. In union markets, organized by trade and dispatched from a hall.</p>
+    <p><strong>Safety Manager (EHS).</strong> Enforces the safety program. Has authority to stop work.</p>
+
+    <h3>Third parties</h3>
+
+    <p><strong>AHJ – Authority Having Jurisdiction.</strong> The government body enforcing code. Usually the city or county building department, plus the fire marshal. The AHJ's interpretation of code is the interpretation that counts, and it varies from town to town.</p>
+    <p><strong>Inspector.</strong> Verifies work in the field. May be municipal, or a third-party special inspector for structural and life-safety items.</p>
+    <p><strong>Commissioning Authority (CxA).</strong> Independent verification that systems perform.</p>
+    <p><strong>Lender, Insurer, Surety.</strong> The surety issues the <strong>bonds</strong> that guarantee the contractor will finish (performance bond) and pay their subs (payment bond). A contractor's bonding capacity effectively caps the size of work they can pursue.</p>
+
+    <hr>
+
+    <h2>4. The documents</h2>
+
+    <p>If you take one thing from this primer, take this: <strong>in AEC, the documents are the product.</strong> Design firms do not sell buildings. They sell a legally binding, coordinated instruction set. Understanding the document structure explains a startling amount of industry behavior.</p>
+
+    <h3>Contract documents</h3>
+
+    <p>The set that legally defines the work. Typically:</p>
+
+    <ul>
+      <li>The <strong>agreement</strong> (owner-contractor contract)</li>
+      <li><strong>General and supplementary conditions</strong> (the rules of engagement)</li>
+      <li><strong>Drawings</strong> (the graphic instructions)</li>
+      <li><strong>Specifications</strong> (the written instructions: quality, materials, execution, standards)</li>
+      <li><strong>Addenda and modifications</strong></li>
+    </ul>
+
+    <p>Drawings and specifications are complementary, not redundant. Roughly: <strong>drawings show quantity and location, specifications state quality and procedure.</strong> When they conflict, the contract states an order of precedence, and arguing about that order is a whole legal subspecialty.</p>
+
+    <h3>MasterFormat</h3>
+
+    <p><strong>MasterFormat</strong> is CSI's standard numbering system for organizing specifications and cost data by <em>work result</em>. Fifty divisions, hierarchical numbering. It is the industry's shared taxonomy, and it is everywhere: spec books, estimates, cost databases, product catalogs, accounting codes.</p>
+
+    <p>A partial map of the divisions you will hear most:</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Div.</th><th>Subject</th></tr>
+        <tr><td>00</td><td>Procurement and contracting requirements</td></tr>
+        <tr><td>01</td><td>General requirements</td></tr>
+        <tr><td>03</td><td>Concrete</td></tr>
+        <tr><td>04</td><td>Masonry</td></tr>
+        <tr><td>05</td><td>Metals</td></tr>
+        <tr><td>06</td><td>Wood, plastics, composites</td></tr>
+        <tr><td>07</td><td>Thermal and moisture protection (roofing, waterproofing, insulation)</td></tr>
+        <tr><td>08</td><td>Openings (doors, windows, glazing)</td></tr>
+        <tr><td>09</td><td>Finishes</td></tr>
+        <tr><td>21–23</td><td>Fire suppression, plumbing, HVAC</td></tr>
+        <tr><td>26–28</td><td>Electrical, communications, electronic safety and security</td></tr>
+        <tr><td>31–33</td><td>Earthwork, exterior improvements, utilities</td></tr>
+      </table>
+    </div>
+
+    <p><strong>Division 01</strong> deserves special mention. It contains the administrative and procedural requirements that apply to the entire project: submittal procedures, quality control, temporary facilities, closeout. Experienced people read Division 01 first because it governs how everything else gets executed.</p>
+
+    <h3>Other classification systems</h3>
+
+    <ul>
+      <li><strong>UniFormat</strong> organizes by <em>building element</em> (foundations, superstructure, exterior enclosure) rather than by work result. Better suited to early design and conceptual estimating, when you know you need a roof but not what kind.</li>
+      <li><strong>OmniClass</strong> is a broader multi-table classification covering spaces, phases, disciplines, and products.</li>
+    </ul>
+
+    <p>The distinction between MasterFormat and UniFormat is a reliable signal of whether someone actually knows the industry.</p>
+
+    <h3>The construction paper trail</h3>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Document</th><th>What it does</th></tr>
+        <tr><td><strong>Submittal</strong></td><td>Contractor proves the product they intend to install complies with the spec, before installing it.</td></tr>
+        <tr><td><strong>Shop drawing</strong></td><td>Fabrication-level drawings prepared by a sub or fabricator, reviewed by the design team.</td></tr>
+        <tr><td><strong>RFI</strong></td><td>Formal written question from contractor to designer, with a formal written answer.</td></tr>
+        <tr><td><strong>ASI</strong></td><td>Architect's Supplemental Instruction. Minor clarification with no cost or time impact.</td></tr>
+        <tr><td><strong>PCO / COR</strong></td><td>Potential Change Order / Change Order Request. The proposed change and its price.</td></tr>
+        <tr><td><strong>CCD</strong></td><td>Construction Change Directive. Owner orders a change before price is agreed.</td></tr>
+        <tr><td><strong>Change Order (CO)</strong></td><td>The executed modification to contract price or time.</td></tr>
+        <tr><td><strong>SOV</strong></td><td>Schedule of Values. The contract price broken into line items for billing.</td></tr>
+        <tr><td><strong>Pay Application</strong></td><td>Monthly request for payment against the SOV.</td></tr>
+        <tr><td><strong>Daily Report</strong></td><td>Field log: who was on site, what was done, weather, deliveries, issues.</td></tr>
+        <tr><td><strong>As-builts / Record drawings</strong></td><td>The set marked up to reflect what was actually built.</td></tr>
+      </table>
+    </div>
+
+    <p>That paper trail exists because the industry runs on contract and liability. It is not bureaucracy for its own sake. Every one of those documents is there because somebody once lost a lawsuit for lack of it.</p>
+
+    <hr>
+
+    <h2>5. How the money and risk are arranged</h2>
+
+    <p>Two separate questions, frequently confused:</p>
+
+    <p><strong>1. Delivery method</strong> – who holds which contracts, and when the builder joins the team.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Method</th><th>How it works</th></tr>
+        <tr><td><strong>Design-Bid-Build (DBB)</strong></td><td>Traditional. Owner hires designer, design finishes, project is bid, low bidder builds. Cheapest apparent price, most adversarial, most change orders.</td></tr>
+        <tr><td><strong>Design-Build (DB)</strong></td><td>Single entity is contractually responsible for both design and construction. One throat to choke. Faster, less owner control over detail.</td></tr>
+        <tr><td><strong>CM at Risk (CMAR / CMGC)</strong></td><td>Builder joins during design as an advisor, then converts to a contract with a guaranteed price. Common on complex commercial and institutional work.</td></tr>
+        <tr><td><strong>Integrated Project Delivery (IPD)</strong></td><td>Owner, designer, and builder share one multiparty contract with pooled risk and reward. Rare, admired, hard to execute.</td></tr>
+        <tr><td><strong>EPC</strong></td><td>Engineer-Procure-Construct. The industrial and energy sector's version of design-build.</td></tr>
+      </table>
+    </div>
+
+    <p><strong>2. Contract type</strong> – how the price is set.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Type</th><th>How it works</th></tr>
+        <tr><td><strong>Lump sum / Stipulated sum</strong></td><td>One fixed price for a defined scope. Contractor carries the risk of overrun.</td></tr>
+        <tr><td><strong>Cost-plus fee</strong></td><td>Owner reimburses actual cost plus a fee. Owner carries the risk.</td></tr>
+        <tr><td><strong>GMP</strong></td><td>Guaranteed Maximum Price. Cost-plus with a ceiling. Savings below the cap are often shared. The dominant model on large negotiated work.</td></tr>
+        <tr><td><strong>Unit price</strong></td><td>Priced per unit of measured quantity. Common in civil work where quantities are uncertain.</td></tr>
+        <tr><td><strong>T&amp;M</strong></td><td>Time and materials. Usually for small or undefined scopes.</td></tr>
+      </table>
+    </div>
+
+    <h3>Money mechanics worth knowing</h3>
+
+    <ul>
+      <li><strong>Retainage.</strong> The owner withholds a percentage (commonly 5–10%) of each payment until the work is complete. It flows down to subs. It is a constant source of cash-flow pain and an active area of state legislation.</li>
+      <li><strong>Contingency.</strong> Money set aside for the unknown. Owner contingency and contractor contingency are different pots with different rules.</li>
+      <li><strong>Allowance.</strong> A placeholder dollar amount for scope not yet defined.</li>
+      <li><strong>General conditions vs. general requirements.</strong> GCs (the cost category) are the project's overhead: supervision, trailers, temp power, cleanup. Confusingly abbreviated the same as General Contractor.</li>
+      <li><strong>Value engineering (VE).</strong> Formally, substituting lower-cost approaches while preserving function. In practice, the phase where the good materials get cut.</li>
+      <li><strong>Mechanic's lien.</strong> A statutory claim against the property by anyone who furnished labor or materials and did not get paid. Powerful, deadline-driven, and the reason lien waivers accompany nearly every payment.</li>
+      <li><strong>Float.</strong> Schedule slack. The <strong>critical path</strong> is the sequence with zero float, where any delay delays the project. Who "owns" float is worth real money in a delay claim.</li>
+    </ul>
+
+    <hr>
+
+    <h2>6. Codes and standards</h2>
+
+    <p>Code compliance shapes the design more than most outsiders expect. A short orientation:</p>
+
+    <ul>
+      <li><strong>Model codes</strong> are written by the <strong>ICC</strong> (International Code Council) and published as the <strong>I-Codes</strong>: <strong>IBC</strong> (building), <strong>IRC</strong> (residential), <strong>IFC</strong> (fire), <strong>IECC</strong> (energy), <strong>IMC/IPC</strong> (mechanical, plumbing) and others. They are model documents with no force on their own.</li>
+      <li><strong>States and municipalities adopt them</strong>, usually with amendments, and usually a version or two behind the current edition. So "the code" in Denver, Dallas, and Boston is not the same document.</li>
+      <li><strong>Referenced standards</strong> do the technical heavy lifting. The code says a concrete structure shall comply with <strong>ACI 318</strong>; the code says steel shall comply with <strong>AISC 360</strong>; energy modeling leans on <strong>ASHRAE 90.1</strong>; fire and life safety pulls from <strong>NFPA</strong>. Materials testing points to <strong>ASTM</strong>. These are written by professional societies and incorporated by reference.</li>
+      <li><strong>Accessibility</strong> runs on a separate track: the <strong>ADA</strong> is federal civil rights law, not building code, and it coexists with <strong>ANSI A117.1</strong> as adopted by the code. They are not identical, and complying with one does not guarantee compliance with the other.</li>
+      <li><strong>Zoning is not building code.</strong> Zoning governs what you may build on a site (use, height, setbacks, density, parking, <strong>FAR</strong>). Building code governs how you must build it. Different documents, different reviewers, different failure modes.</li>
+      <li><strong>The AHJ has final interpretive authority.</strong> Two plan reviewers in adjacent jurisdictions can read identical language differently, and both are correct within their jurisdiction.</li>
+    </ul>
+
+    <p>Green and performance frameworks are voluntary overlays on top of this: <strong>LEED</strong>, <strong>WELL</strong>, <strong>Passive House</strong>, <strong>Living Building Challenge</strong>, plus jurisdiction-specific energy and carbon ordinances that are increasingly mandatory rather than optional.</p>
+
+    <hr>
+
+    <h2>7. The technology landscape, in categories</h2>
+
+    <p>Named without endorsement, and grouped by where in the lifecycle they sit. Categories matter more than logos.</p>
+
+    <ul>
+      <li><strong>CAD / BIM authoring.</strong> Where the model gets made. Revit, ArchiCAD, Vectorworks, Rhino, Civil 3D, Tekla, and the ongoing rise of browser-native challengers.</li>
+      <li><strong>BIM coordination and clash detection.</strong> Combining discipline models and finding where the ductwork runs through the beam before it is built. Navisworks, Solibri, and cloud common data environments.</li>
+      <li><strong>Reality capture.</strong> Laser scanning, photogrammetry, 360 cameras, drones. Producing point clouds and progress documentation.</li>
+      <li><strong>Estimating and takeoff.</strong> Quantity measurement and pricing. Increasingly automated off models and PDFs.</li>
+      <li><strong>Scheduling.</strong> CPM tools, plus a growing lean-construction school built on pull planning and last-planner methods.</li>
+      <li><strong>Project management / common data environment.</strong> Document control, RFIs, submittals, drawings, daily reports. The system of record on most jobsites.</li>
+      <li><strong>Field execution.</strong> Punch lists, safety, quality inspections, layout, equipment tracking.</li>
+      <li><strong>Financials and ERP.</strong> Job cost accounting, payroll, AP/AR, work-in-progress reporting. Deeply unglamorous, deeply entrenched.</li>
+      <li><strong>Preconstruction and site selection.</strong> Feasibility, zoning and entitlement analysis, market and real estate data.</li>
+      <li><strong>Facilities and asset management.</strong> Where the building lives after handoff, and where the data handed over is usually worse than it should be.</li>
+    </ul>
+
+    <p>Two interoperability concepts you should recognize:</p>
+
+    <ul>
+      <li><strong>IFC (Industry Foundation Classes)</strong> – the open, vendor-neutral data schema for building models, maintained by buildingSMART. Note the acronym collision with International Fire Code and Issued For Construction.</li>
+      <li><strong>COBie</strong> – a structured spreadsheet format for delivering asset and equipment data from construction to operations.</li>
+    </ul>
+
+    <hr>
+
+    <h2>8. Things that surprise people coming from tech</h2>
+
+    <p><strong>Liability is the organizing principle.</strong> Architects and engineers stamp drawings with a personal professional seal. If a building hurts someone, individuals are named. That fact explains conservatism, documentation volume, and reluctance to trust automated output that nobody will stamp.</p>
+
+    <p><strong>The customer is a temporary organization.</strong> You are not selling to a company so much as to a project team that will not exist in three years. Adoption does not compound the way it does in SaaS unless it lands at the enterprise level.</p>
+
+    <p><strong>Fragmentation defeats network effects.</strong> A GC, sixty subs, four design firms, and an owner all use different systems and will not standardize because none of them can compel the others.</p>
+
+    <p><strong>The field is not the office.</strong> Gloves, sunlight, no reliable connectivity, a foreman with thirty years of experience and no patience. Software that requires a desk chair does not get used.</p>
+
+    <p><strong>Nothing is repeatable, but everything is patterned.</strong> Every project is unique, and yet the same twelve problems recur on all of them. That gap is the whole opportunity.</p>
+
+    <p><strong>Being slow to adopt is often rational.</strong> Downside risk is asymmetric. A failed software rollout on a $200M project does not cost a sprint. It costs a schedule, and schedule costs real money.</p>
+
+    <hr>
+
+    <h2>9. Acronym reference</h2>
+
+    <p>Grouped for scanning. This is not exhaustive. It is what actually comes up.</p>
+
+    <h3>Roles and organizations</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>AHJ</td><td>Authority Having Jurisdiction</td></tr>
+        <tr><td>AOR / EOR</td><td>Architect of Record / Engineer of Record</td></tr>
+        <tr><td>CxA</td><td>Commissioning Authority</td></tr>
+        <tr><td>GC</td><td>General Contractor</td></tr>
+        <tr><td>CM / CMAR / CMGC</td><td>Construction Manager / CM at Risk / CM-General Contractor</td></tr>
+        <tr><td>PX / PM / PE / APM</td><td>Project Executive / Project Manager / Project Engineer / Assistant PM</td></tr>
+        <tr><td>Super</td><td>Superintendent</td></tr>
+        <tr><td>MEP / MEPF</td><td>Mechanical, Electrical, Plumbing (+ Fire Protection)</td></tr>
+        <tr><td>SE</td><td>Structural Engineer</td></tr>
+        <tr><td>OAC</td><td>Owner-Architect-Contractor (the recurring project meeting)</td></tr>
+        <tr><td>EHS</td><td>Environment, Health, and Safety</td></tr>
+      </table>
+    </div>
+
+    <h3>Industry bodies and standards writers</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>AIA</td><td>American Institute of Architects</td></tr>
+        <tr><td>CSI</td><td>Construction Specifications Institute</td></tr>
+        <tr><td>AGC / ABC</td><td>Associated General Contractors / Associated Builders and Contractors</td></tr>
+        <tr><td>DBIA</td><td>Design-Build Institute of America</td></tr>
+        <tr><td>ICC</td><td>International Code Council</td></tr>
+        <tr><td>ASHRAE</td><td>Heating, refrigerating, and air-conditioning engineers</td></tr>
+        <tr><td>NFPA</td><td>National Fire Protection Association</td></tr>
+        <tr><td>ACI / AISC</td><td>American Concrete Institute / American Institute of Steel Construction</td></tr>
+        <tr><td>ASTM / ANSI</td><td>Materials testing standards / American National Standards Institute</td></tr>
+        <tr><td>OSHA</td><td>Occupational Safety and Health Administration</td></tr>
+        <tr><td>NIBS</td><td>National Institute of Building Sciences</td></tr>
+      </table>
+    </div>
+
+    <h3>Codes</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>IBC / IRC</td><td>International Building Code / International Residential Code</td></tr>
+        <tr><td>IFC</td><td>International Fire Code</td></tr>
+        <tr><td>IECC</td><td>International Energy Conservation Code</td></tr>
+        <tr><td>IMC / IPC</td><td>International Mechanical Code / International Plumbing Code</td></tr>
+        <tr><td>ADA</td><td>Americans with Disabilities Act</td></tr>
+        <tr><td>LEED / WELL</td><td>Green building and occupant health rating systems</td></tr>
+      </table>
+    </div>
+
+    <h3>Phases and delivery</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>SD / DD / CD</td><td>Schematic Design / Design Development / Construction Documents</td></tr>
+        <tr><td>CA</td><td>Construction Administration</td></tr>
+        <tr><td>DBB / DB / IPD / EPC</td><td>The delivery methods (see section 5)</td></tr>
+        <tr><td>NTP</td><td>Notice to Proceed</td></tr>
+        <tr><td>IFC</td><td>Issued For Construction (drawing status)</td></tr>
+        <tr><td>IFB / ITB / RFP / RFQ</td><td>Invitation for/to Bid, Request for Proposal, Request for Qualifications</td></tr>
+        <tr><td>TCO / CO</td><td>Temporary Certificate of Occupancy / Certificate of Occupancy</td></tr>
+      </table>
+    </div>
+
+    <h3>Documents and process</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>RFI</td><td>Request for Information</td></tr>
+        <tr><td>ASI</td><td>Architect's Supplemental Instruction</td></tr>
+        <tr><td>PCO / COR / CO</td><td>Potential Change Order / Change Order Request / Change Order</td></tr>
+        <tr><td>CCD</td><td>Construction Change Directive</td></tr>
+        <tr><td>SOV</td><td>Schedule of Values</td></tr>
+        <tr><td>G702 / G703</td><td>The standard AIA pay application forms</td></tr>
+        <tr><td>O&amp;M</td><td>Operations and Maintenance (manuals, or the phase)</td></tr>
+        <tr><td>QA / QC</td><td>Quality Assurance / Quality Control</td></tr>
+        <tr><td>WBS</td><td>Work Breakdown Structure</td></tr>
+        <tr><td>CPM</td><td>Critical Path Method</td></tr>
+      </table>
+    </div>
+
+    <h3>Cost and contract</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>GMP</td><td>Guaranteed Maximum Price</td></tr>
+        <tr><td>T&amp;M</td><td>Time and Materials</td></tr>
+        <tr><td>NTE</td><td>Not to Exceed</td></tr>
+        <tr><td>ROM</td><td>Rough Order of Magnitude (estimate)</td></tr>
+        <tr><td>OH&amp;P</td><td>Overhead and Profit</td></tr>
+        <tr><td>VE</td><td>Value Engineering</td></tr>
+        <tr><td>GC / GR</td><td>General Conditions / General Requirements (cost categories)</td></tr>
+      </table>
+    </div>
+
+    <h3>Real estate and finance</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>NOI</td><td>Net Operating Income</td></tr>
+        <tr><td>Cap rate</td><td>Capitalization rate. NOI divided by value.</td></tr>
+        <tr><td>IRR</td><td>Internal Rate of Return</td></tr>
+        <tr><td>DSCR</td><td>Debt Service Coverage Ratio</td></tr>
+        <tr><td>LTV / LTC</td><td>Loan to Value / Loan to Cost</td></tr>
+        <tr><td>FAR</td><td>Floor Area Ratio (a zoning constraint)</td></tr>
+        <tr><td>RSF / USF</td><td>Rentable / Usable Square Feet</td></tr>
+        <tr><td>GSF</td><td>Gross Square Feet</td></tr>
+        <tr><td>TI</td><td>Tenant Improvement</td></tr>
+        <tr><td>NNN</td><td>Triple net lease</td></tr>
+        <tr><td>CAPEX / OPEX</td><td>Capital / Operating expenditure</td></tr>
+        <tr><td>LOI / PSA</td><td>Letter of Intent / Purchase and Sale Agreement</td></tr>
+        <tr><td>ESA</td><td>Environmental Site Assessment (Phase I, Phase II)</td></tr>
+        <tr><td>BOMA</td><td>Building Owners and Managers Association (and their measurement standards)</td></tr>
+      </table>
+    </div>
+
+    <h3>Technology</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><td>BIM</td><td>Building Information Modeling</td></tr>
+        <tr><td>VDC</td><td>Virtual Design and Construction</td></tr>
+        <tr><td>CDE</td><td>Common Data Environment</td></tr>
+        <tr><td>LOD</td><td>Level of Development (or Detail)</td></tr>
+        <tr><td>IFC</td><td>Industry Foundation Classes</td></tr>
+        <tr><td>COBie</td><td>Construction Operations Building Information Exchange</td></tr>
+        <tr><td>GIS</td><td>Geographic Information System</td></tr>
+        <tr><td>EUI</td><td>Energy Use Intensity</td></tr>
+      </table>
+    </div>
+
+    <h3>Four collisions to watch</h3>
+
+    <p>The industry reuses acronyms shamelessly. Context is the only disambiguator.</p>
+
+    <ul>
+      <li><strong>CO</strong> – Change Order, or Certificate of Occupancy.</li>
+      <li><strong>PE</strong> – Project Engineer, or Professional Engineer. Very different things.</li>
+      <li><strong>GC</strong> – General Contractor, or General Conditions.</li>
+      <li><strong>IFC</strong> – International Fire Code, Issued For Construction, or Industry Foundation Classes.</li>
+    </ul>
+
+    <hr>
+
+    <h2>10. Where to go from here</h2>
+
+    <p>If you want to go deeper, in rough order of effort:</p>
+
+    <ul>
+      <li><strong>My AEC Mini-MBA</strong> covers everything here in-depth, plus covers more of the real estate side that happens before design, build, and occupation. It also includes details of the tech landscape in AEC and the business math behind the whole industry.</li>
+      <li><strong>Read a real project manual.</strong> Many public agencies post full bid sets. Open one, read Division 01, then flip through a spec section and the corresponding drawings.</li>
+      <li><strong>Walk a jobsite.</strong> Ask someone. Most people will say yes, and thirty minutes on site teaches more than a month of reading.</li>
+      <li><strong>Learn the money.</strong> Read a pro forma and a schedule of values side by side. That is where the design decisions and the field decisions meet.</li>
+    </ul>
+
+    <p>The industry rewards people who show up, ask specific questions, and admit what they do not know. It has very little patience for people who arrive certain they can fix it.</p>
+
+  </div>
+
+  <!-- ── POST FOOTER ── -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">← All posts</a>
+    <div class="social-row">
+      <span style="font-size:0.8rem; color:var(--text-dim);">Share:</span>
+      <a href="https://linkedin.com/in/brooks-mitchell/" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- ── EMAIL CAPTURE ── -->
+  <section id="subscribe" style="border-top:1px solid var(--border);">
+    <p class="section-label">Enjoyed this?</p>
+    <div class="email-capture">
+      <h3>Get the next one in your inbox</h3>
+      <p>New posts on AEC tech, AI, and construction. No fluff.</p>
+      <form class="email-form">
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+        <span class="form-msg"></span>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Brooks Mitchell</p>
+    <p><a href="../index.html" style="color:var(--text-dim); text-decoration:none;">← Home</a></p>
+  </footer>
+
+  <script src="../src/nav.js"></script>
+  <script src="../src/email.js"></script>
+</body>
+</html>
