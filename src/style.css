@@ -184,6 +184,12 @@ section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
 .avatar-bottom .ph-label span { font-size: 0.6rem; letter-spacing: 0.06em; }
 .photo-caption { font-size: 0.72rem; font-weight: 300; color: var(--text-dim); }
 
+/* ── INSTAGRAM ── */
+.ig-frame {
+  background: var(--bg-raised); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.85rem; display: flex; justify-content: center;
+}
+
 /* ── FOOTER ── */
 footer {
   padding: 1.75rem 0 3rem; border-top: 1px solid var(--border);
