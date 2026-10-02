@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEC Environment Fundamentals — Brooks Mitchell</title>
+  <meta name="description" content="A free 522-page course on how a building actually gets built — from site acquisition to closeout, and the software and AI that run each phase." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/style.css" />
+  <style>
+    /* Download card + contents list — scoped to this page */
+    .dl-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.75rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .dl-card .dl-eyebrow {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .dl-card h2 {
+      font-size: 1.15rem; font-weight: 600; color: var(--text);
+      margin: 0 0 0.6rem; letter-spacing: -0.01em;
+    }
+    .dl-card p {
+      font-size: 0.9rem; font-weight: 300; line-height: 1.7;
+      color: var(--text-mid); margin-bottom: 1.4rem;
+    }
+    .dl-row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .post-body a.dl-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #1a1100;
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; padding: 0.7rem 1.4rem;
+      border-radius: 4px; transition: background 0.15s;
+    }
+    .post-body a.dl-btn:hover { background: var(--accent-hi); color: #1a1100; text-decoration: none; }
+    .post-body a.dl-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .post-body a.dl-alt {
+      font-size: 0.82rem; font-weight: 400; color: var(--text-mid);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .post-body a.dl-alt:hover { color: var(--accent); }
+    .dl-meta {
+      font-size: 0.72rem; font-weight: 300;
+      color: var(--text-dim); margin: 0.9rem 0 0;
+    }
+
+    .toc-part { margin-top: 2rem; }
+    .toc-part h3 { margin-bottom: 0.3rem; }
+    .toc-part > p.toc-blurb {
+      font-size: 0.88rem; font-weight: 300; color: var(--text-dim);
+      line-height: 1.7; margin-bottom: 0.9rem;
+    }
+    .post-body ol.toc-list { padding-left: 1.4rem; margin-bottom: 0; }
+    .post-body ol.toc-list li { font-size: 0.92rem; line-height: 1.7; margin-bottom: 0.3rem; }
+
+    .post-body .lede-block {
+      font-size: 0.95rem; font-weight: 300; font-style: italic;
+      color: var(--text-dim); margin-bottom: 1.75rem;
+    }
+    .post-body hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 2.75rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/logo transparent.png" alt="Brooks Mitchell" />
+    </a>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── POST HEADER ── -->
+  <div class="post-header">
+    <p class="post-eyebrow">AEC Tech · Free Course · 522 Pages</p>
+    <h1>AEC Environment Fundamentals</h1>
+    <p class="post-byline">
+      <strong>Brooks Mitchell</strong> · Version 1.0 · <time datetime="2026-10">October 2026</time>
+    </p>
+  </div>
+
+  <!-- ── POST BODY ── -->
+  <div class="post-body">
+
+    <p class="lede-block">From site acquisition to closeout, and the software and AI that run it.</p>
+
+    <p>
+      Most people in AEC know one part of a project well. An architect knows design but has never read a pro forma. A superintendent knows the jobsite but was never in the room when the land was bought. A developer can underwrite a deal but has never written an RFI.
+    </p>
+
+    <p>
+      The people building software for this industry often know even less, because they learned the one workflow their product serves.
+    </p>
+
+    <p>
+      This course follows a building from the first look at a site through design, construction, and turnover. At each step it covers who does the work, what documents they produce, what software they use, and where AI is changing the job.
+    </p>
+
+    <!-- ── DOWNLOAD ── -->
+    <div class="dl-card">
+      <p class="dl-eyebrow">Free Download · PDF</p>
+      <h2>AEC Environment Fundamentals</h2>
+      <p>The complete course, 522 pages. Free to download, print, and share.</p>
+      <div class="dl-row">
+        <a href="../images/AEC_Environment_Fundamentals.pdf" download class="dl-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download the PDF
+        </a>
+        <a href="../images/AEC_Environment_Fundamentals.pdf" target="_blank" rel="noopener" class="dl-alt">Read in browser →</a>
+      </div>
+      <p class="dl-meta">PDF · 7.3 MB · 522 pages · No email required</p>
+    </div>
+
+    <hr>
+
+    <h2>Who this is for</h2>
+
+    <p>
+      Someone with real experience in one part of the built environment who wants a working model of the rest of it. An architect who has never seen a capital stack. A founder selling into construction who needs to know what happens before the drawings exist. An engineer who wants to understand why the budget was never negotiable.
+    </p>
+
+    <p>
+      It assumes you are competent in your own lane and have no obligation to know anyone else's.
+    </p>
+
+    <h2>How it's organized</h2>
+
+    <p>
+      Three parts that follow the life of a project in order, plus a synthesis module that runs one project through all of it.
+    </p>
+
+    <div class="toc-part">
+      <h3>Part 1 — Real Estate Development</h3>
+      <p class="toc-blurb">How sites are analyzed and bought. A deal through five decision gates, from the first look at a market to closing on the land and the financing.</p>
+      <ol class="toc-list">
+        <li>The Development Ecosystem and Deal Lifecycle</li>
+        <li>Market and Site Selection: Is There Demand?</li>
+        <li>Legal and Regulatory Due Diligence: What Are You Allowed to Build?</li>
+        <li>Physical Due Diligence: Vacant Land <em>/</em> Existing Buildings and Infrastructure</li>
+        <li>Concept Feasibility and Cost: Does It Physically Pencil?</li>
+        <li>The Capital Stack: Whose Money and What Does It Demand?</li>
+        <li>Site Control and the Transaction</li>
+        <li>The Handoff to Design</li>
+      </ol>
+    </div>
+
+    <div class="toc-part">
+      <h3>Part 2 — Design and Construction</h3>
+      <p class="toc-blurb">One reference project — a 200-unit garden-style apartment community — from the day the developer closes on the land to the day the property manager receives the keys.</p>
+      <ol class="toc-list">
+        <li>The Handoff: From Pro Forma to Project</li>
+        <li>Design as Progressive Commitment</li>
+        <li>Cost Through Design: Estimating and the Budget Gap</li>
+        <li>Reading the Document Set</li>
+        <li>Buying the Work: Procurement, Contracting, and Buyout</li>
+        <li>Preconstruction Planning: Schedule, Logistics, Permits, and Risk</li>
+        <li>Building It: Field Execution and Contract Administration</li>
+        <li>Closeout, Turnover, and Handback to Operations</li>
+      </ol>
+    </div>
+
+    <div class="toc-part">
+      <h3>Part 3 — Technology and AI</h3>
+      <p class="toc-blurb">The same lifecycle a third time, covering the software used at each phase: the market leaders, their main competitors, and where AI is already in use. Technology information is current as of September 2026.</p>
+      <ol class="toc-list">
+        <li>Market Intelligence &amp; Site Sourcing</li>
+        <li>Zoning, Entitlements &amp; Site Feasibility</li>
+        <li>Underwriting, Deal &amp; Capital Management</li>
+        <li>Due Diligence &amp; Acquisition</li>
+        <li>Owner's Program, Budget &amp; Delivery Method</li>
+        <li>Conceptual &amp; Schematic Design</li>
+        <li>BIM Authoring &amp; Engineering Analysis</li>
+        <li>Coordination, Common Data Environments &amp; Drawing QA</li>
+        <li>Specifications</li>
+        <li>Code Compliance, Plan Review &amp; Permitting</li>
+        <li>Estimating &amp; Quantity Takeoff</li>
+        <li>Bidding, Prequalification &amp; Contracts</li>
+        <li>Scheduling &amp; Planning</li>
+        <li>Project Management &amp; Contract Administration</li>
+        <li>Construction Financials</li>
+        <li>Reality Capture, Progress &amp; Quality</li>
+        <li>Safety, Workforce &amp; the Connected Jobsite</li>
+        <li>Closeout, Commissioning &amp; Turnover</li>
+        <li>Handover to Operations &amp; Digital Twins</li>
+      </ol>
+    </div>
+
+    <div class="toc-part">
+      <h3>Synthesis — Lifecycle Recap</h3>
+      <p class="toc-blurb">One project through all three parts in sixteen steps. For each step: who is involved, what they produce, which tools they use, what AI does today, and what information gets lost in the handoff to the next step.</p>
+    </div>
+
+    <hr>
+
+    <h2>Why I wrote it</h2>
+
+    <p>
+      I started my post-college career as a Field Manager in residential construction in Orlando, driving site to site, coordinating trades for windows, doors, trusses, trim, and stairs. In between then and now I did software engineering for oil and gas accounting, and IoT software and hardware. Today I help architects and real estate folks implement AI into their workflows.
+    </p>
+
+    <p>
+      I had a smattering of knowledge from construction, architecture, and operations, and wanted a complete and thorough understanding of how everything fit together and flowed. So I wrote this for myself. I drew on my own experience and hundreds of hours of conversations with AEC professionals of all kinds, and I used LLMs in the writing.
+    </p>
+
+    <p>
+      I learned an immeasurable amount writing it, and I hope you gain just as much from reading it. Feedback, questions, and criticisms are welcome — <a href="https://www.linkedin.com/in/brooks-mitchell/" target="_blank" rel="noopener">reach out on LinkedIn</a>.
+    </p>
+
+    <h2>Terms</h2>
+
+    <p>
+      Distributed free of charge. You may download, print, and share it for personal or educational use, provided it is not altered or sold. This material is for general educational purposes only — it is not legal, financial, engineering, architectural, or investment advice. Codes, regulations, contract forms, and market conditions vary by jurisdiction and change over time. Consult licensed professionals before acting on anything in it.
+    </p>
+
+    <p>
+      Product and company names are trademarks of their respective owners and are used only to describe the market. Their mention does not imply endorsement.
+    </p>
+
+    <!-- ── DOWNLOAD (repeat) ── -->
+    <div class="dl-card">
+      <p class="dl-eyebrow">Get the course</p>
+      <h2>Download the full PDF</h2>
+      <p>522 pages, free, no email required. I'll update it as I can.</p>
+      <div class="dl-row">
+        <a href="../images/AEC_Environment_Fundamentals.pdf" download class="dl-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download the PDF
+        </a>
+        <a href="../images/AEC_Environment_Fundamentals.pdf" target="_blank" rel="noopener" class="dl-alt">Read in browser →</a>
+      </div>
+      <p class="dl-meta">Version 1.0 · Released October 2026</p>
+    </div>
+
+  </div>
+
+  <!-- ── POST FOOTER ── -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">← All posts</a>
+    <div class="social-row">
+      <span style="font-size:0.8rem; color:var(--text-dim);">Share:</span>
+      <a href="https://linkedin.com/in/brooks-mitchell/" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- ── EMAIL CAPTURE ── -->
+  <section id="subscribe" style="border-top:1px solid var(--border);">
+    <p class="section-label">Enjoyed this?</p>
+    <div class="email-capture">
+      <h3>Get the next one in your inbox</h3>
+      <p>New posts on AEC tech, AI, and construction. No fluff.</p>
+      <form class="email-form">
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+        <span class="form-msg"></span>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Brooks Mitchell</p>
+    <p><a href="../index.html" style="color:var(--text-dim); text-decoration:none;">← Home</a></p>
+  </footer>
+
+  <script src="../src/nav.js"></script>
+  <script src="../src/email.js"></script>
+</body>
+</html>
