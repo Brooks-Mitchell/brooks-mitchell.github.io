@@ -16,7 +16,7 @@
   --sans: 'DM Sans', system-ui, sans-serif;
   --max: 720px;
   --side: clamp(1.5rem, 6vw, 3.5rem);
-  --nav-h: 64px;
+  --nav-h: 130px;
 }
 
 html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
@@ -44,11 +44,14 @@ body { max-width: calc(var(--max) + var(--side) * 2); margin: 0 auto; padding: 0
 .nav-links a:hover { color: var(--text); background: var(--bg-raised); }
 .nav-links a.active { color: var(--accent); }
 
-/* Hamburger — mobile only */
+/* Hamburger - mobile only */
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; color: var(--text-mid); }
 .nav-toggle svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
 
 @media (max-width: 520px) {
+  :root { --nav-h: 80px; }
+  .site-nav { height: 80px; }
+  .nav-logo img { height: 64px; }
   .nav-toggle { display: flex; }
   .nav-links {
     display: none; flex-direction: column; gap: 0;
